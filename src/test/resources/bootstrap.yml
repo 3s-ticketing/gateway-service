@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    bootstrap:
+      enabled: false
+    config:
+      enabled: false
+      fail-fast: false
+      import-check:
+        enabled: false
