@@ -66,12 +66,6 @@ eureka:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,gateway
-
 logging:
   level:
     org.ticketing.gateway: DEBUG
@@ -79,3 +73,12 @@ logging:
     org.springframework.security.oauth2: DEBUG
     org.springframework.cloud.gateway: DEBUG
     reactor.netty.http.client: DEBUG
+
+management:
+  metrics:
+    tags:
+      application: ${spring.application.name}
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway,prometheus
