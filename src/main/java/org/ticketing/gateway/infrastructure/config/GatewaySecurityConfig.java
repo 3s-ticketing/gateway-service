@@ -102,6 +102,13 @@ public class GatewaySecurityConfig {
                 .pathMatchers(HttpMethod.GET, "/api/tickets/*").hasAnyRole("ADMIN", "GENERAL")
                 .pathMatchers(HttpMethod.PATCH, "/api/tickets/*/use").hasAnyRole("ADMIN", "CLUB_ADMIN")
 
+                // Reservation Seat
+                .pathMatchers(HttpMethod.POST, "/api/reservation-seats/hold").hasRole("GENERAL")
+                .pathMatchers(HttpMethod.POST, "/api/reservation-seats/confirm").hasRole("GENERAL")
+                .pathMatchers(HttpMethod.DELETE, "/api/reservation-seats/*").hasAnyRole("ADMIN", "GENERAL")
+                .pathMatchers(HttpMethod.GET, "/api/reservation-seats").hasAnyRole("ADMIN", "GENERAL", "CLUB_ADMIN")
+                .pathMatchers(HttpMethod.GET, "/api/reservation-seats/*").hasAnyRole("ADMIN", "GENERAL", "CLUB_ADMIN")
+
                 // Queue
                 .pathMatchers(HttpMethod.POST, "/api/queues/*/entry").authenticated()
                 .pathMatchers(HttpMethod.GET, "/api/queues/*/status").authenticated()
