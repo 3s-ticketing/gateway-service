@@ -110,6 +110,7 @@ public class GatewaySecurityConfig {
                 .pathMatchers(HttpMethod.GET, "/api/reservations/*/tickets").hasAnyRole("ADMIN", "GENERAL")
                 .pathMatchers(HttpMethod.GET, "/api/reservations/*").hasAnyRole("ADMIN", "GENERAL", "CLUB_ADMIN")
                 .pathMatchers(HttpMethod.DELETE, "/api/reservations/*").hasAnyRole("ADMIN", "GENERAL")
+                .pathMatchers(HttpMethod.GET, "/api/tickets/reservation/*").hasAnyRole("ADMIN", "GENERAL", "CLUB_ADMIN")
                 .pathMatchers(HttpMethod.GET, "/api/tickets/*").hasAnyRole("ADMIN", "GENERAL")
                 .pathMatchers(HttpMethod.PATCH, "/api/tickets/*/use").hasAnyRole("ADMIN", "CLUB_ADMIN")
 
